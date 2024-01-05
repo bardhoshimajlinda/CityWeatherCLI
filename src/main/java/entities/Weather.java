@@ -10,11 +10,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "weather")
-public class Weather {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected int id;
+public class Weather extends BaseEntity {
 
     @Column(name = "city_id")
     protected int cityId;

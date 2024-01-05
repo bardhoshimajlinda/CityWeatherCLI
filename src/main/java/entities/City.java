@@ -10,11 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @Table(name = "city")
-public class City {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected int id;
+public class City extends BaseEntity {
 
     @Column(name = "name")
     protected String name;
