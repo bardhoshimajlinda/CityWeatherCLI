@@ -2,15 +2,13 @@ package dao;
 
 import entities.City;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import utils.DateUtils;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class CityDao extends BaseDao{
+public class CityDao extends BaseDao {
     public CityDao() {
         super();
     }
@@ -28,7 +26,7 @@ public class CityDao extends BaseDao{
         } catch (RuntimeException e) {
             if (transaction != null) {
                 transaction.rollback();
-                e.printStackTrace();
+            e.printStackTrace();
             }
         } finally {
             // Close session after each task with database
@@ -79,10 +77,9 @@ public class CityDao extends BaseDao{
         } catch (RuntimeException e) {
             if (transaction != null) {
                 transaction.rollback();
-                e.printStackTrace();
+            e.printStackTrace();
             }
         } finally {
-            // Close session after each task with database
             session.close();
         }
         return cities;

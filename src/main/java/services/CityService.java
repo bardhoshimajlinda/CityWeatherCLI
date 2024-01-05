@@ -3,9 +3,7 @@ package services;
 import dao.CityDao;
 import dao.WeatherDao;
 import entities.City;
-
 import java.util.List;
-
 public class CityService {
     CityDao cityDao;
     WeatherDao weatherDao;
