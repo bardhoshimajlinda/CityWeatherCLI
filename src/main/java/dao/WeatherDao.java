@@ -30,7 +30,7 @@ public class WeatherDao extends BaseDao {
         boolean result = false;
 
         try {
-            transaction = session.getTransaction();
+            transaction = session.beginTransaction();
 
             for(Forecast forecast : forecastResponse.getItems()) {
                 List dbItem = session

@@ -5,23 +5,23 @@ import entities.Weather;
 import services.CityService;
 import services.WeatherService;
 import utils.DateUtils;
-
 import java.util.List;
-import java.util.stream.Stream;
+
 
 public class WeatherApp {
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
-        Stream.of(args).forEach(System.out::println);
         CityDao cityDao = new CityDao();
         WeatherDao weatherDao = new WeatherDao();
 
         WeatherService weatherService = new WeatherService(cityDao, weatherDao);
         CityService cityService = new CityService(cityDao, weatherDao);
 
+        // addTiranaToDatabase(cityDao);
+
         weatherService.syncDatabaseWithOpenWeatherApi();
 
-        String cityQuery = null;
+        String cityQuery = "Tirana";
         String dateQuery = null;
         if (args.length > 0) {
             cityQuery = args[0];
@@ -45,8 +45,7 @@ public class WeatherApp {
                     o.getMinTemperature() + " °C",
                     o.getMaxTemperature() + " °C",
                     DateUtils.getMinusDelimeterdateFormat().format(o.getValidAt())));
-        }
-        else {
+        } else {
             List<City> cities = cityService.getCitiesForInstantInformation();
 
             if (cities != null && cities.size() > 0) {
@@ -59,12 +58,11 @@ public class WeatherApp {
                         o.getWeathers().get(0).getMaxTemperature() + " °C",
                         DateUtils.getMinusDelimeterdateFormat().format(o.getWeathers().get(0).getValidAt()))
                 );
-            }
-            else {
+            } else {
                 System.out.println("--- Aktualisht nuk u gjend asnje informacion mbi motin ---");
             }
         }
-
         System.out.println("=====================================================================================================");
     }
 }
+
