@@ -9,8 +9,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import utils.DatabaseUtils;
 import utils.DateUtils;
-
-import javax.persistence.criteria.CriteriaBuilder;
 import java.sql.Date;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -24,7 +22,6 @@ public class WeatherDao extends BaseDao {
 
     public boolean saveToDatabase(ForecastResponse forecastResponse, City city) {
 
-        SessionFactory sessionFactory = DatabaseUtils.getDbSession();
         Session session = sessionFactory.getCurrentSession();
         Transaction transaction = null;
         boolean result = false;
@@ -78,7 +75,7 @@ public class WeatherDao extends BaseDao {
     }
 
     public List<Weather> searchWeatherBy(City city, java.util.Date searchDate) {
-        SessionFactory sessionFactory = DatabaseUtils.getDbSession();
+
         Session session = sessionFactory.getCurrentSession();
         Transaction transaction = null;
         List<Weather> result = new ArrayList<>();

@@ -7,7 +7,6 @@ import services.WeatherService;
 import utils.DateUtils;
 import java.util.List;
 
-
 public class WeatherApp {
     public static void main(String[] args) {
 
@@ -21,7 +20,7 @@ public class WeatherApp {
 
         weatherService.syncDatabaseWithOpenWeatherApi();
 
-        String cityQuery = "Tirana";
+        String cityQuery = null;
         String dateQuery = null;
         if (args.length > 0) {
             cityQuery = args[0];

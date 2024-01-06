@@ -19,11 +19,7 @@ public class DatabaseUtils {
                             .buildSessionFactory();
                 }
             }
-
         }
         return DB_SESSION;
-    }
-    public static Connection getConnection (String url, String user, String password) throws SQLException {
-        return DriverManager.getConnection(url,user,password);
     }
 }

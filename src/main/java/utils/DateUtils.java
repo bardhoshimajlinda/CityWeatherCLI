@@ -40,7 +40,7 @@ public class DateUtils {
         return null;
     }
 
-    public static SimpleDateFormat getMinusDelimeterdateFormat(){
+    public static SimpleDateFormat getMinusDelimeterdateFormat() {
         return new SimpleDateFormat("dd-MM-yyyy HH:mm");
     }
 }

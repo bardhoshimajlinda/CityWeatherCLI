@@ -7,7 +7,8 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Getter @Setter
+@Getter
+@Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ForecastResponse {
     @JsonProperty("cod")
