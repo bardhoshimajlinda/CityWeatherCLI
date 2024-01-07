@@ -58,7 +58,7 @@ public class WeatherDao extends BaseDao {
 
                     session.save(newForecast);
                 } else {
-                    System.out.println(String.format("Data for city: %s, timestamp: %s exists!", city.getName(), forecast.getUnixForecastDate()));
+                   // System.out.println(String.format("Data for city: %s, timestamp: %s exists!", city.getName(), forecast.getUnixForecastDate()));
                 }
             }
             transaction.commit();

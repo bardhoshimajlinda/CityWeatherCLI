@@ -53,7 +53,7 @@ public class WeatherService {
                 String body = response.body().string();
 
                 ObjectMapper objectMapper = new ObjectMapper();
-                System.out.println("Server response: " + body);
+                //System.out.println("Server response: " + body);
                 ForecastResponse forecast = objectMapper.readValue(body, ForecastResponse.class);
                 if (forecast != null) {
                     weatherDao.saveToDatabase(forecast, city);

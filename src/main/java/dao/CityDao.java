@@ -84,4 +84,20 @@ public class CityDao extends BaseDao {
         }
         return cities;
     }
+
+    public void addCity(City city) {
+        Session session = sessionFactory.getCurrentSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            session.persist(city);
+            transaction.commit();
+        } catch (RuntimeException e) {
+            if (transaction != null)
+                transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
 }

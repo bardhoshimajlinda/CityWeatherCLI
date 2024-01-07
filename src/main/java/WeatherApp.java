@@ -16,7 +16,7 @@ public class WeatherApp {
         WeatherService weatherService = new WeatherService(cityDao, weatherDao);
         CityService cityService = new CityService(cityDao, weatherDao);
 
-        // addTiranaToDatabase(cityDao);
+        cityService.addCity("Prague");
 
         weatherService.syncDatabaseWithOpenWeatherApi();
 

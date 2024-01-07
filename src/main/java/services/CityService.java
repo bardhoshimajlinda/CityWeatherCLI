@@ -22,4 +22,11 @@ public class CityService {
     public List<City> getCitiesForInstantInformation() {
         return this.cityDao.getCitiesWithDailyWeather();
     }
+
+    public void addCity(String cityName) {
+        final CityDao cityDao = new CityDao();
+        City city = new City();
+        city.setName(cityName);
+        cityDao.addCity(city);
+    }
 }
