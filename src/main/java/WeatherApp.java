@@ -6,6 +6,7 @@ import services.CityService;
 import services.WeatherService;
 import utils.DateUtils;
 import java.util.List;
+import java.util.Scanner;
 
 public class WeatherApp {
     public static void main(String[] args) {
@@ -16,11 +17,14 @@ public class WeatherApp {
         WeatherService weatherService = new WeatherService(cityDao, weatherDao);
         CityService cityService = new CityService(cityDao, weatherDao);
 
-        cityService.addCity("Prague");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ju lutem vendosni qytetin per te cilin deshironi te shikoni motin: ");
+        String city = scanner.next();
+        cityService.addCity(city);
 
         weatherService.syncDatabaseWithOpenWeatherApi();
 
-        String cityQuery = null;
+        String cityQuery = city;
         String dateQuery = null;
         if (args.length > 0) {
             cityQuery = args[0];
